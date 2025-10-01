@@ -1,5 +1,5 @@
 class Player {
-    constructor(x, y, w, h, c, g, jh) {
+    constructor(x, y, w, h, c, g) {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -16,7 +16,7 @@ class Player {
         this.gravityDir = 1;
 
         this.spd = 3;
-        this.OGjumpheight = jh;
+        this.OGjumpheight = 30;
         this.doubleJumpHeight = this.OGjumpheight * 1.2;
         this.jumpheight = this.OGjumpheight;
 

@@ -7,22 +7,24 @@ stage.imageSmoothingEnabled = false;
 var screenShake = false;
 var shakeAmount = 15;
 //const globalScrollSpd = 0;
-var globalGravity = 5.1;
+var globalGravity = 3;
 //const globalGravity = 0;
 //const globalGravity = 3;
 
+const canvasWidth = 600;
+const canvasHeight = 400;
 
-var blockSize = Math.round(stage.canvas.height / levels[0].length);
-//const blockSize = Math.round(stage.canvas.width/22.95);
+var blockSize = canvasHeight / 12;
+//const blockSize = Math.round(canvasWidth/22.95);
 
 //const scrollSpd = blockSize/3.2;
 //const scrollSpd = blockSize/2.5;
-const scrollSpd = Math.round(stage.canvas.width / 71);
+const scrollSpd = 10;
 var globalScrollSpd = scrollSpd;
 
 var chunks = [new Chunk(startingChunk, 0, 0, blockSize)]
 
-var player = new Player(stage.canvas.width / 4, 300, blockSize, blockSize, 'red', globalGravity, blockSize / 2);
+var player = new Player(50, 50, blockSize, blockSize, 'red', globalGravity);
 
 var blocks = [];
 
@@ -50,9 +52,9 @@ var retryBtn = document.getElementById('death_button');
 
 var scoreX = 30;
 var scoreY = 80;
-var textSize = Math.round(stage.canvas.width / 35);
+var textSize = Math.round(canvasWidth / 35);
 
-var powerupX = stage.canvas.width / 1.2;
+var powerupX = canvasWidth / 1.2;
 var powerupY = 100;
 
 if (getCookie("highscore") != "") {
@@ -92,7 +94,7 @@ window.addEventListener('gamepadconnected', (event) => {
 	gamepadIndex = event.gamepad.index;
     gamepad = event.gamepad;
     gamepadConnected = true;
-    labels.push(new Label("GAMEPAD CONNECTED", stage.canvas.width / 4, stage.canvas.height / 2.5, 75, '', true));
+    labels.push(new Label("GAMEPAD CONNECTED", canvasWidth / 4, canvasHeight / 2.5, 75, '', true));
 });
 
 /*window.addEventListener("gamepadconnected", (e) => {
@@ -103,7 +105,7 @@ window.addEventListener('gamepadconnected', (event) => {
       e.gamepad.buttons.length,
       e.gamepad.axes.length,
     );
-    labels.push(new Label("GAMEPAD CONNECTED", stage.canvas.width / 4, stage.canvas.height / 2.5, 75, '', true));
+    labels.push(new Label("GAMEPAD CONNECTED", canvasWidth / 4, canvasHeight / 2.5, 75, '', true));
     window.gpConnected = true;
     window.gp = e.gamepad;
 });*/
@@ -133,16 +135,14 @@ console.log("%cI will devour your flesh", 'font-weight: bold; color: red')
 
 function update(timestamp) {
 
-    var deltaTime = (timestamp - lastTimestamp) / 15;
-
     stage.canvas.width = window.innerWidth;
     stage.canvas.height = window.innerHeight;
-    stage.clearRect(0, 0, stage.canvas.width, stage.canvas.height);
+    stage.clearRect(0, 0, canvasWidth, canvasHeight);
 
     stage.canvas.style.left = screenShake ? String(Math.random() * (shakeAmount - -shakeAmount) + -shakeAmount) + "px" : 0; //Screenshake
     stage.canvas.style.top = screenShake ? String(Math.random() * (shakeAmount - -shakeAmount) + -shakeAmount) + "px" : 0; //Screenshake
 
-    blockSize = Math.round(stage.canvas.height / latestChunk.chunk.length);
+    blockSize = Math.round(canvasHeight / latestChunk.chunk.length);
 
     //DrawObjects(globalScrollSpd); //Draws blocks and stuff
 
@@ -153,9 +153,9 @@ function update(timestamp) {
 
     globalScrollSpd = Math.floor((scrollSpd + (gameTime/1000))); //Make scrollspeed speed up longer you play
     
-    globalScrollSpd = globalScrollSpd * deltaTime;
+    globalScrollSpd = globalScrollSpd;
 
-    globalGravity = globalGravity * deltaTime;
+    globalGravity = globalGravity;
 
     var chunkRightSideX = latestChunk.chunkX + latestChunk.w;
     var chunkLeftSideX = latestChunk.chunkX;
@@ -172,7 +172,7 @@ function update(timestamp) {
         }
     }
 
-    if (chunkRightSideX <= stage.canvas.width + blockSize * 3) { // Spawns new chunk after the currentChunk
+    if (chunkRightSideX <= canvasWidth + blockSize * 3) { // Spawns new chunk after the currentChunk
         var randomLevel = Math.round(Math.random() * levels.length) - 1;
         randomLevel = randomLevel <= 0 ? 1 : randomLevel;
         //if (randomLevel == lastLevel) randomLevel = lastLevel === 0 ? randomLevel + 1 : randomLevel - 1;
@@ -186,7 +186,7 @@ function update(timestamp) {
         latestChunk = newChunk;
         if (isBonus && !player.dead) {
             setTimeout(function () {
-                if (isBonus) labels.push(new Label("BONUS", stage.canvas.width / 2.5, stage.canvas.height / 2.5, 75, '', true));
+                if (isBonus) labels.push(new Label("BONUS", canvasWidth / 2.5, canvasHeight / 2.5, 75, '', true));
             }, 1000);
             chunksTillBonus = 15;
         }
@@ -210,7 +210,7 @@ function update(timestamp) {
         powerup = player.activePowerups[p];
         if (powerup.expires) {
             powerupText = powerup.name + " " + Math.round(powerup.expireTime / 10);
-            powerupX = stage.canvas.width - (powerupText.length * 25);
+            powerupX = canvasWidth - (powerupText.length * 25);
             powerupY = 100 + (p) * 100;
             /*if (powerup.expireTime < powerup.expireTimeOG / 4 && powerup.expires) {
                 stage.fillStyle = Math.random() * 100 <= 60 ? '#ff0000' : 'rgba(0,0,0,0)';
@@ -223,7 +223,7 @@ function update(timestamp) {
             }
         } else {
             powerupText = powerup.name + " " + Math.floor(powerup.uses);
-            powerupX = stage.canvas.width - (powerupText.length * 25);
+            powerupX = canvasWidth - (powerupText.length * 25);
             powerupY = 100 + (p) * 100;
             stage.fillText(powerupText, powerupX - (powerupText.length * 20), powerupY);
         }
@@ -241,7 +241,7 @@ function update(timestamp) {
     for (p = 0; p < particles.length; p++) {
         particles[p].draw();
         particles[p].physics();
-        if (particles[p].y >= stage.canvas.height) {
+        if (particles[p].y >= canvasHeight) {
             particles.splice(p, 1);
         }
     }
@@ -305,14 +305,13 @@ function update(timestamp) {
 
     }
 
-    if (player.y >= stage.canvas.height || player.y < -400) { player.dead = true; } // Kill the player if it falls off the map
+    if (player.y >= canvasHeight || player.y < -400) { player.dead = true; } // Kill the player if it falls off the map
 
     if (scoreCD < 0 && !player.dead) {
         score += 100;
         scoreCD = scoreCoolDown;
     }
 
-    lastTimestamp = timestamp;
     requestAnimationFrame(update);
 
 }
@@ -335,7 +334,7 @@ document.addEventListener('keydown', function (event) {
         player.onGround = false;
 
         /*if (globalScrollSpd == 0) {
-            globalScrollSpd = Math.round(stage.canvas.width / 75);
+            globalScrollSpd = Math.round(canvasWidth / 75);
         } else {
             globalScrollSpd = 0;
         }*/

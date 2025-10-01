@@ -91,8 +91,7 @@ class Bounce {
 
         this.index = 0;
 
-        //this.bounceHeight = 10;
-        this.bounceHeight = 60;
+        this.bounceHeight = 15;
 
         this.type = 'bounce';
     }
