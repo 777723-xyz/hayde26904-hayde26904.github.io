@@ -16,7 +16,7 @@ class Player {
         this.gravityDir = 1;
 
         this.spd = 3;
-        this.OGjumpheight = 30;
+        this.OGjumpheight = 100000;
         this.doubleJumpHeight = this.OGjumpheight * 1.2;
         this.jumpheight = this.OGjumpheight;
 
@@ -70,15 +70,13 @@ class Player {
         var min = this.gravityDir == 1 ? -65 : -25;
         var max = this.gravityDir == 1 ? 25 : 65;    
 
-        //console.log(this.yv);
-
         this.yv = Math.clamp(this.yv, min, max);
 
         this.yv += this.gravity * this.gravityDir;
 
         this.x += this.xv * this.spd;
 
-        if (!this.dead) this.y += this.yv;
+        if (!this.dead) this.y += this.yv * dt;
 
     }
 

@@ -7,19 +7,19 @@ stage.imageSmoothingEnabled = false;
 var screenShake = false;
 var shakeAmount = 15;
 //const globalScrollSpd = 0;
-var globalGravity = 3;
+var globalGravity = 1000;
 //const globalGravity = 0;
 //const globalGravity = 3;
 
-const canvasWidth = 600;
-const canvasHeight = 400;
+const canvasWidth = 500;
+const canvasHeight = 300;
 
 var blockSize = canvasHeight / 12;
 //const blockSize = Math.round(canvasWidth/22.95);
 
 //const scrollSpd = blockSize/3.2;
 //const scrollSpd = blockSize/2.5;
-const scrollSpd = 10;
+const scrollSpd = 1000;
 var globalScrollSpd = scrollSpd;
 
 var chunks = [new Chunk(startingChunk, 0, 0, blockSize)]
@@ -125,8 +125,7 @@ var lastLevel = 0;
 player.currentChunk = chunks[0];
 var latestChunk = chunks[0];
 
-var deltaTime = 0;
-var lastTimestamp = 0;
+var lastTimestamp = performance.now();
 
 chunks[0].create();
 
@@ -135,9 +134,12 @@ console.log("%cI will devour your flesh", 'font-weight: bold; color: red')
 
 function update(timestamp) {
 
+    let dt = (timestamp - lastTimestamp) / 1000;
+    lastTimestamp = timestamp;
+
     stage.canvas.width = window.innerWidth;
     stage.canvas.height = window.innerHeight;
-    stage.clearRect(0, 0, canvasWidth, canvasHeight);
+    stage.clearRect(0, 0, stage.canvas.width, stage.canvas.height);
 
     stage.canvas.style.left = screenShake ? String(Math.random() * (shakeAmount - -shakeAmount) + -shakeAmount) + "px" : 0; //Screenshake
     stage.canvas.style.top = screenShake ? String(Math.random() * (shakeAmount - -shakeAmount) + -shakeAmount) + "px" : 0; //Screenshake
@@ -151,11 +153,7 @@ function update(timestamp) {
 
     gameTime++;
 
-    globalScrollSpd = Math.floor((scrollSpd + (gameTime/1000))); //Make scrollspeed speed up longer you play
-    
-    globalScrollSpd = globalScrollSpd;
-
-    globalGravity = globalGravity;
+    globalScrollSpd = Math.floor((scrollSpd + (gameTime/1000))) * dt; //Make scrollspeed speed up longer you play
 
     var chunkRightSideX = latestChunk.chunkX + latestChunk.w;
     var chunkLeftSideX = latestChunk.chunkX;
@@ -266,7 +264,7 @@ function update(timestamp) {
 
     if (!player.dead) {
         player.draw();
-        player.physics(deltaTime);
+        player.physics(dt);
         player.update();
         scoreCD--;
 
