@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zachery Clark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body class="index-page">
+    <main>
+        <header class="page-head wrap">
+            <h1>Zachery Clark</h1>
+        </header>
+
+        <section class="novels-carousel wrap" aria-label="Novel carousel">
+            <button class="carousel-btn carousel-btn-prev" type="button" aria-label="Previous novel">&#10094;</button>
+            <div class="carousel-track">
+                <% books.forEach((book) => { %>
+                <section class="book-section fade-section">
+                    <div class="book-inner wrap">
+                        <div class="cover-shell">
+                            <img src="/<%= book.cover %>" class="book-cover" alt="<%= book.coverAlt %>" />
+                        </div>
+                        <div class="book-copy">
+                            <h2><%- book.title.replace('The ARG Bureau', '<br>The ARG Bureau') %></h2>
+                            <% if (book.subtitle) { %>
+                            <h3 class="book-subtitle"><%= book.subtitle %></h3>
+                            <% } %>
+                            <div class="book-short-description">
+                                <b><%= book.shortDescription %></b>
+                            </div>
+                            <% if (book.reviews && book.reviews.length > 0) { %>
+                            <div class="book-review">
+                                <img class="book-review-photo" src="<%= book.reviews[0].profilePhotoUrl %>" alt="<%= book.reviews[0].name %> profile photo" />
+                                <div class="book-review-copy">
+                                    <p class="book-review-meta"><strong><%= book.reviews[0].name %></strong> • <%= book.reviews[0].scoreOutOf5 %>/5</p>
+                                    <p class="book-review-text">“<%= book.reviews[0].reviewText %>”</p>
+                                </div>
+                            </div>
+                            <% } %>
+                            <a class="read-more-btn" href="/books/<%= book.slug %>">Read more</a>
+                        </div>
+                    </div>
+                </section>
+                <% }); %>
+            </div>
+            <div class="carousel-dots" aria-label="Novel slide indicators"></div>
+            <button class="carousel-btn carousel-btn-next" type="button" aria-label="Next novel">&#10095;</button>
+        </section>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
