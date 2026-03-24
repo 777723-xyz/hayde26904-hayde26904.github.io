@@ -19,7 +19,7 @@
             <h1>Zachery Clark</h1>
         </header>
 
-        <section class="novels-carousel wrap" aria-label="Novel carousel">
+        <section class="novels-carousel wrap" aria-label="Novel carousel" id="novels-carousel">
             <button class="carousel-btn carousel-btn-prev" type="button" aria-label="Previous novel">&#10094;</button>
             <div class="carousel-track">
                 <% books.forEach((book) => { %>
@@ -30,9 +30,7 @@
                         </div>
                         <div class="book-copy">
                             <h2 class="book-title"><%- book.title %></h2>
-                            <% if (book.subtitle) { %>
-                            <h3 class="book-subtitle"><%= book.subtitle %></h3>
-                            <% } %>
+                            <h3 class="book-subtitle"><%= book.subtitle || '\u00A0' %></h3>
                             <div class="book-short-description">
                                 <b><%= book.shortDescription %></b>
                             </div>

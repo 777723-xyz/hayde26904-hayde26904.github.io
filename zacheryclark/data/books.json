@@ -7,10 +7,11 @@
 		"shortDescription": "A chilling psychological thriller that explores the cost of obsession, the fragility of identity, and the terrifying moment when a storyteller becomes the story.",
 		"reviews": [
 			{
-				"name": "Ava M.",
-				"reviewText": "A sharp, unsettling thriller with a finale that lingers.",
-				"profilePhotoUrl": "https://i.pravatar.cc/80?img=47",
-				"scoreOutOf5": 4.7
+				"name": "Jessie A.",
+				"reviewText": "Mayhem at Midnight is one of those books that quietly crawls under your skin and stays there long after you finish reading.",
+				"profilePhotoUrl": "https://images.gr-assets.com/users/1764941493p6/195881228.jpg",
+				"scoreOutOf5": 5,
+				"source": "Goodreads"
 			}
 		],
 		"summary": [
@@ -19,7 +20,12 @@
 			"When an ambitious writer, consumed by his desire for inspiration, finds himself face-to-face with a notorious serial killer to craft the definitive true crime book, how deep must he delve into the darkness before losing his identity and transforming into the monster he initially sought to comprehend?",
 			"What begins as research becomes ritual. What was once curiosity turns into compulsion."
 		],
-		"readMoreUrl": "https://www.goodreads.com/book/show/223821264-mayhem-at-midnight"
+		"links": [
+			{
+				"name": "Goodreads",
+				"url": "https://www.goodreads.com/book/show/223821264-mayhem-at-midnight"
+			}
+		]
 	},
 	{
 		"title": "Built From Her Bones",
@@ -29,17 +35,22 @@
 		"shortDescription": "A gritty, heart-pounding noir thriller, Built from Her Bones weaves a tale of vengeance, redemption, and the cost of chasing monsters in a city that never sleeps.",
 		"reviews": [
 			{
-				"name": "Jordan K.",
-				"reviewText": "Dark, relentless, and emotionally heavy in the best way.",
-				"profilePhotoUrl": "https://i.pravatar.cc/80?img=14",
-				"scoreOutOf5": 4.8
+				"name": "Brynden",
+				"reviewText": "From the very first page, I was drawn into Port Sentinel. The atmosphere, the tension, the sense of danger lurking around every corner, it’s all brilliantly executed.",
+				"profilePhotoUrl": "https://images.gr-assets.com/users/1762881825p6/195334640.jpg",
+				"scoreOutOf5": 4
 			}
 		],
 		"summary": [
 			"In the rain-soaked streets of Port Sentinel, Special Agent Damon Parker hunts a killer whose crimes echo the darkest moment of his past: the brutal murder of his mother. Each body left behind is a meticulously staged tableau, marked by a single lilac petal, a chilling signature that drags Damon back to the night his world shattered. As the body count rises, the killer, Anthony Vexler, a man of chilling precision and hidden scars, plays a deadly game, taunting Damon with cryptic messages and personal relics.",
 			"With his team, rookie Joe Ortega and sharp profiler Natalie Rivera, Damon chases leads through seedy bars, decaying apartments, and forgotten parks, unraveling a pattern that points to a mastermind orchestrating chaos from the shadows. But every step closer to Vexler pulls Damon deeper into his trauma, threatening to break him before he can stop the next kill. As the stakes escalate and allies fall, Damon must confront the ghosts of his past to end the game or become its final piece."
 		],
-		"readMoreUrl": "https://www.goodreads.com/book/show/240250632-built-from-her-bones"
+		"links": [
+			{
+				"name": "Goodreads",
+				"url": "https://www.goodreads.com/book/show/240250632-built-from-her-bones"
+			}
+		]
 	},
 	{
 		"title": "Patchwork",
@@ -49,17 +60,22 @@
 		"shortDescription": "Bite-sized stories inspired by random writing prompts and long nights filled with caffeine-fueled boredom. Think of them as mental popcorn: quick, crunchy, and oddly satisfying.",
 		"reviews": [
 			{
-				"name": "Sam R.",
-				"reviewText": "Quick reads with surprising depth and a lot of personality.",
-				"profilePhotoUrl": "https://i.pravatar.cc/80?img=31",
-				"scoreOutOf5": 4.5
+				"name": "Diya R.",
+				"reviewText": "If you enjoy stories that feel raw, honest, and deeply reflective, Patchwork Chronicles of the Mind by Zachery Clark is a fascinating literary journey into the chaos of human thoughts.",
+				"profilePhotoUrl": "https://images.gr-assets.com/users/1719869227p6/179586257.jpg",
+				"scoreOutOf5": 5
 			}
 		],
 		"summary": [
 			"I began writing them to keep my mind from turning into mush during those 2 a.m. existential crises. Now, I'm sharing them so you can take a glimpse into the chaos. They're perfect for those moments when you're stuck in the bathroom, forgot your phone, and suddenly realize you have nothing but your thoughts and questionable tile grout to stare at.",
 			"You're welcome."
 		],
-		"readMoreUrl": "https://www.goodreads.com/book/show/217051632-patchwork-chronicles-of-the-mind"
+		"links": [
+			{
+				"name": "Goodreads",
+				"url": "https://www.goodreads.com/book/show/217051632-patchwork-chronicles-of-the-mind"
+			}
+		]
 	},
 	{
 		"title": "Misadventures of Zeke and Liz",
@@ -69,10 +85,10 @@
 		"shortDescription": "Darkly satirical, psychologically gripping, and eerily plausible, a story about how institutions crumble when they mistake fiction for fact, and how obsession can turn surveillance into self-destruction.",
 		"reviews": [
 			{
-				"name": "Taylor N.",
-				"reviewText": "Smart, strange, and unsettlingly relevant from start to finish.",
-				"profilePhotoUrl": "https://i.pravatar.cc/80?img=22",
-				"scoreOutOf5": 4.9
+				"name": "Delilah S.",
+				"reviewText": "This was an absolutely amazing read the plot was absolutely brilliant and when I say brilliant I mean it the characters were absolutely fantastic I loved this book so much keep up the good work Zachery",
+				"profilePhotoUrl": "https://images.gr-assets.com/users/1748813562p6/190863651.jpg",
+				"scoreOutOf5": 5
 			}
 		],
 		"summaryLead": "When conspiracies become code, reality is the game.",
@@ -81,6 +97,12 @@
 			"Drawn further onto the web, Tom drinks to silence the voices invading his dreams, while Carla creates a shrine of notes and red string in her apartment. Treasury analysts, CIA operatives, and even the Bureau itself become entangled in the spiral, chasing phantom funds and recursive signals that seem meant to trap them. But the deeper they go, the line between fact and fiction blurs.",
 			"Zeke and Elizabeth's language shifts into the grammar of games, final bosses, PvP arenas, and loot drops until the agents realize the unthinkable: they are not tracking terrorists but players in an elaborate alternate reality."
 		],
-		"readMoreUrl": "https://www.goodreads.com/book/show/244603214-misadventures-of-zeke-and-liz"
+		"links": [
+			{
+				"name": "Goodreads",
+				"url": "https://www.goodreads.com/book/show/244603214-misadventures-of-zeke-and-liz"
+			}
+		]
+		
 	}
 ]
