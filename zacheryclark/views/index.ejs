@@ -35,16 +35,27 @@
                                 <b><%= book.shortDescription %></b>
                             </div>
                             <% if (book.reviews && book.reviews.length > 0) { %>
-                            <% const rating = Number(book.reviews[0].scoreOutOf5) || 0; %>
-                            <% const filledStars = Math.max(0, Math.min(5, Math.round(rating))); %>
-                            <div class="book-review">
-                                <div class="book-review-copy">
-                                    <p class="book-review-meta"><strong><%= book.reviews[0].publicationName %></strong> • <%= rating.toFixed(1) %>/5</p>
-                                    <p class="book-rating-stars" aria-label="Rated <%= rating.toFixed(1) %> out of 5 on <%= book.reviews[0].publicationName %>">
-                                        <span class="book-rating-stars-filled"><%= '★'.repeat(filledStars) %></span><span class="book-rating-stars-empty"><%= '★'.repeat(5 - filledStars) %></span>
-                                    </p>
+                                <div class="book-reviews">
+                                <% book.reviews.forEach((review) => { %>
+                                    <% const rating = Number(review.scoreOutOf5.toFixed(1)) || 0; %>
+                                    <% const clampedRating = Math.floor(rating); %>
+                                    <% const lastStarFillPercent = Math.floor(((rating % 1) * 100)); %>
+                                    <div class="book-review">
+                                        <div class="book-review-copy">
+                                            <p class="book-review-meta"><strong><%= review.publicationName %></strong> • <%= rating %>/5</p>
+                                            <p class="book-rating-stars" aria-label="Rated <%= rating.toFixed(1) %> out of 5 on <%= review.publicationName %>">
+                                                <% for (let starIndex = 0; starIndex < 5; starIndex++) { %>
+                                                    <% const starFillPercentage = (starIndex < clampedRating) ? 100 : lastStarFillPercent %>
+                                                    <span class="book-rating-star" aria-hidden="true">
+                                                        <span class="book-rating-star-empty">★</span>
+                                                        <span class="book-rating-star-filled" style="--star-fill-percentage: <%= starFillPercentage %>%">★</span>
+                                                    </span>
+                                                <% } %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                <% }); %>
                                 </div>
-                            </div>
                             <% } %>
                             <a class="read-more-btn" href="/books/<%= book.slug %>">Read more</a>
                         </div>

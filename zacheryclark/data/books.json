@@ -9,6 +9,10 @@
 			{
 				"publicationName": "Goodreads",
 				"scoreOutOf5": 4.84
+			},
+			{
+				"publicationName": "Amazon",
+				"scoreOutOf5": 4.9
 			}
 		],
 		"summary": [
@@ -34,6 +38,10 @@
 			{
 				"publicationName": "Goodreads",
 				"scoreOutOf5": 4.59
+			},
+			{
+				"publicationName": "Amazon",
+				"scoreOutOf5": 5
 			}
 		],
 		"summary": [
