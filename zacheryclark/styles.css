@@ -255,6 +255,10 @@ h2 {
     height: 560px;
 }
 
+.book-page .book-inner {
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+}
+
 .book-page .book-summary {
     margin-top: 1.25rem;
 }
